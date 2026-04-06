@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+
+# Visual Studio caches
+*.db
+*.opendb
+*.sqlite
+*.cache
+
+# OS files
+Thumbs.db
+.DS_Store
