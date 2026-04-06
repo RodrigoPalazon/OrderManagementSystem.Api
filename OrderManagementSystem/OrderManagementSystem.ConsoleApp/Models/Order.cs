@@ -17,5 +17,7 @@ namespace OrderManagementSystem.ConsoleApp.Models
         public string Status { get; set; } = string.Empty;
 
         public int CustomerId { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.ConsoleApp.Interfaces
 {
-    public interface IPaymentRepository
+    public interface IOrderItemRepository
     {
-        List<Payment> GetAll();
-        Payment? GetById(int id);
-        Payment? GetByOrderId(int orderId);
-        void Add(Payment payment);
-        void Update(Payment payment);
+        List<OrderItem> GetAll();
+        OrderItem? GetById(int id);
+        List<OrderItem> GetByOrderId(int orderId);
+        void Add(OrderItem orderItem);
+        void Update(OrderItem orderItem);
         void Delete(int id);
     }
 }
