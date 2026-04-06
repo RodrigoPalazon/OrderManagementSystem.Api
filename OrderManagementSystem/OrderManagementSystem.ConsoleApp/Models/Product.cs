@@ -20,6 +20,8 @@ namespace OrderManagementSystem.ConsoleApp.Models
 
         public bool IsActive { get; set; } = true;
 
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+
         public int CategoryId { get; set; }
     }
 }
