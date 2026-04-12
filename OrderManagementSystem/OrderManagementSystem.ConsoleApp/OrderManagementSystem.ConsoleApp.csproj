@@ -11,7 +11,6 @@
     <Folder Include="Menus\" />
     <Folder Include="Data\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Services\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Interfaces
+namespace OrderManagementSystem.ConsoleApp.Services
 {
     internal class ICustomerService
     {

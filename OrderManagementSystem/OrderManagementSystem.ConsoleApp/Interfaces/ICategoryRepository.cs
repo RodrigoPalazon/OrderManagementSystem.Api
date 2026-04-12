@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.ConsoleApp.Interfaces
 {
-    internal class ICategoryRepository
+    internal interface ICategoryRepository
     {
         List<Category> GetAll();
         Category? GetById(int id);
