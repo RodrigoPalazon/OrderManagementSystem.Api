@@ -1,23 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrderManagementSystem.ConsoleApp.Domain.Entities
+﻿namespace OrderManagementSystem.ConsoleApp.Domain.Entities
 {
-    internal class OrderItem
+    public class OrderItem
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
+        public int ProductId { get; private set; }
+        public int Quantity { get; private set; }
+        public decimal UnitPrice { get; private set; }
+        public decimal LineTotal { get; private set; }
 
-        public int OrderId { get; set; }
+        public OrderItem(int id, int productId, int quantity, decimal unitPrice)
+        {
+            if (quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero.");
+            if (unitPrice <= 0)
+                throw new ArgumentException("Unit price must be greater than zero.");
 
-        public int ProductId { get; set; }
+            Id = id;
+            ProductId = productId;
+            Quantity = quantity;
+            UnitPrice = unitPrice;
+            LineTotal = quantity * unitPrice;
+        }
 
-        public int Quantity { get; set; }
+        public void UpdateQuantity(int quantity)
+        {
+            if (quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero.");
 
-        public decimal UnitPrice { get; set; }
+            Quantity = quantity;
+            Recalculate();
+        }
 
-        public decimal LineTotal { get; set; }
+        public void UpdatePrice(decimal unitPrice)
+        {
+            if (unitPrice <= 0)
+                throw new ArgumentException("Unit price must be greater than zero.");
+
+            UnitPrice = unitPrice;
+            Recalculate();
+        }
+
+        private void Recalculate()
+        {
+            LineTotal = Quantity * UnitPrice;
+        }
     }
 }

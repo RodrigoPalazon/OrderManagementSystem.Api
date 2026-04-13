@@ -1,23 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrderManagementSystem.ConsoleApp.Domain.Entities
+﻿namespace OrderManagementSystem.ConsoleApp.Domain.Entities
 {
-    internal class CustomerService
+    public class Customer
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Email { get; private set; }
+        public string Phone { get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
-        public string FirstName { get; set; } = string.Empty;
+        public Customer(int id, string firstName, string lastName, string email, string phone)
+        {
+            if (string.IsNullOrWhiteSpace(firstName))
+                throw new ArgumentException("First name is required.");
+            if (string.IsNullOrWhiteSpace(lastName))
+                throw new ArgumentException("Last name is required.");
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email is required.");
 
-        public string LastName { get; set; } = string.Empty;
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Phone = phone ?? string.Empty;
+            CreatedAt = DateTime.Now;
+        }
 
-        public string Email { get; set; } = string.Empty;
+        public void UpdateProfile(string firstName, string lastName, string email, string phone)
+        {
+            if (string.IsNullOrWhiteSpace(firstName))
+                throw new ArgumentException("First name is required.");
+            if (string.IsNullOrWhiteSpace(lastName))
+                throw new ArgumentException("Last name is required.");
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email is required.");
 
-        public string Phone { get; set; } = string.Empty;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Phone = phone ?? string.Empty;
+        }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public void ChangeEmail(string newEmail)
+        {
+            if (string.IsNullOrWhiteSpace(newEmail))
+                throw new ArgumentException("Email is required.");
+
+            Email = newEmail;
+        }
+
+        public void ChangePhone(string newPhone)
+        {
+            Phone = newPhone ?? string.Empty;
+        }
     }
 }

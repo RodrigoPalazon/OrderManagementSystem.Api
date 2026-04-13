@@ -1,23 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OrderManagementSystem.ConsoleApp.Domain.Enums;
 
 namespace OrderManagementSystem.ConsoleApp.Domain.Entities
 {
-    internal class PaymentService
+    public class Payment
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
+        public int OrderId { get; private set; }
+        public decimal Amount { get; private set; }
+        public DateTime PaymentDate { get; private set; }
+        public string PaymentMethod { get; private set; }
+        public PaymentStatus Status { get; private set; }
 
-        public int OrderId { get; set; }
+        public Payment(int id, int orderId, decimal amount, string paymentMethod)
+        {
+            if (amount <= 0)
+                throw new ArgumentException("Payment amount must be greater than zero.");
+            if (string.IsNullOrWhiteSpace(paymentMethod))
+                throw new ArgumentException("Payment method is required.");
 
-        public decimal Amount { get; set; }
+            Id = id;
+            OrderId = orderId;
+            Amount = amount;
+            PaymentMethod = paymentMethod;
+            PaymentDate = DateTime.Now;
+            Status = PaymentStatus.Pending;
+        }
 
-        public DateTime PaymentDate { get; set; } = DateTime.Now;
+        public void MarkAsFailed()
+        {
+            Status = PaymentStatus.Failed;
+        }
 
-        public string PaymentMethod { get; set; } = string.Empty;
-
-        public string Status { get; set; } = string.Empty;
+        public bool IsSuccessful()
+        {
+            return Status == PaymentStatus.Completed;
+        }
     }
 }
