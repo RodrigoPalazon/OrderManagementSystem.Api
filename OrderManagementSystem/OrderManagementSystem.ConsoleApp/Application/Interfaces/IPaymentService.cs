@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Interfaces
+namespace OrderManagementSystem.ConsoleApp.Application.Interfaces
 {
-    public interface IPaymentRepository
+    public interface IPaymentService
     {
         List<Payment> GetAll();
         Payment? GetById(int id);

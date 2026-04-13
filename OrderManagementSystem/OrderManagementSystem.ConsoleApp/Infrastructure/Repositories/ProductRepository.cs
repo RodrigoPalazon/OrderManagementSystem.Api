@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Services
+namespace OrderManagementSystem.ConsoleApp.Infrastructure.Repositories
 {
-    internal class ICustomerService
+    internal class ProductRepository
     {
     }
 }

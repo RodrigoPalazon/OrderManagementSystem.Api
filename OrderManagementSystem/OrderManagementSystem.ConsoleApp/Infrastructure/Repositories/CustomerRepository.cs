@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Interfaces
+namespace OrderManagementSystem.ConsoleApp.Application.Interfaces
 {
-    internal interface ICustomerRepository
+    internal interface CustomerRepository
     {
         List<Customer> GetAll();
         Customer? GetById(int id);

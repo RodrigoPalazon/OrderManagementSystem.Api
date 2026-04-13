@@ -1,11 +1,11 @@
-﻿using OrderManagementSystem.ConsoleApp.Models;
+﻿using OrderManagementSystem.ConsoleApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Interfaces
+namespace OrderManagementSystem.ConsoleApp.Domain.Repositories
 {
     internal interface IProductRepository
     {

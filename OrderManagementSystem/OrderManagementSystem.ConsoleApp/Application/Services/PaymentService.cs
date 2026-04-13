@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Models
+namespace OrderManagementSystem.ConsoleApp.Domain.Entities
 {
-    internal class Payment
+    internal class PaymentService
     {
         public int Id { get; set; }
 

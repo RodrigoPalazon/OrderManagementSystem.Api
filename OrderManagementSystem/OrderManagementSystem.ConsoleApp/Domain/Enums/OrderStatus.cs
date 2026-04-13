@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManagementSystem.ConsoleApp.Interfaces
+namespace OrderManagementSystem.ConsoleApp.Domain.Enums
 {
-    internal class IProductService
+    internal class OrderStatus
     {
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.ConsoleApp.Interfaces
 {
-    public interface IOrderItemRepository
+    internal interface CategoryRepository
     {
-        List<OrderItem> GetAll();
-        OrderItem? GetById(int id);
-        List<OrderItem> GetByOrderId(int orderId);
-        void Add(OrderItem orderItem);
-        void Update(OrderItem orderItem);
+        List<Category> GetAll();
+        Category? GetById(int id);
+        Category? GetByName(string name);
+        void Add(Category category);
+        void Update(Category category);
         void Delete(int id);
     }
 }
