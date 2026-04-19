@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\OMS.Model.csproj" />
+    <ProjectReference Include="..\OMS.DataAccess\OMS.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
