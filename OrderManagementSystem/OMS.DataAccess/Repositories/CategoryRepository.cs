@@ -1,42 +1,47 @@
-﻿using OMS.DataAccess.Interfaces;
+﻿using OMS.DataAccess.Context;
+using OMS.DataAccess.Interfaces;
 using OMS.Model;
 
 namespace OMS.DataAccess.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly List<Category> _categories = new();
+        //private readonly List<Category> _categories = new();
+        private readonly OmsDbContext _context;
+
+        public CategoryRepository(OmsDbContext context)
+        {
+            _context = context;
+        }
 
         public List<Category> GetAll()
         {
-            return _categories;
+            return _context.Categories.ToList();
         }
+
 
         public Category? GetById(int id)
         {
-            return _categories.FirstOrDefault(c => c.Id == id);
+            return _context.Categories.FirstOrDefault(c => c.Id == id);
         }
 
         public Category? GetByName(string name)
         {
-            return _categories.FirstOrDefault(c =>
-                c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return _context.Categories.FirstOrDefault(c =>
+                c.Name == name);
         }
+
 
         public void Add(Category category)
         {
-            _categories.Add(category);
+            _context.Categories.Add(category);
+            _context.SaveChanges();
         }
 
         public void Update(Category category)
         {
-            var existingCategory = GetById(category.Id);
-
-            if (existingCategory == null)
-                return;
-
-            existingCategory.Name = category.Name;
-            existingCategory.Description = category.Description;
+            _context.Categories.Update(category);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
@@ -45,7 +50,8 @@ namespace OMS.DataAccess.Repositories
 
             if (category != null)
             {
-                _categories.Remove(category);
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
             }
         }
     }

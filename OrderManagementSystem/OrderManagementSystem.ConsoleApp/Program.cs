@@ -1,4 +1,7 @@
-﻿using OMS.ConsoleApp.Menus;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using OMS.DataAccess.Context;
+using OMS.ConsoleApp.Menus;
 using OMS.DataAccess.Interfaces;
 using OMS.DataAccess.Repositories;
 using OMS.Services.Interfaces;
@@ -6,16 +9,31 @@ using OMS.Services.Services;
 
 namespace OMS.ConsoleApp
 {
-    public class Program
+    internal class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            ICategoryRepository categoryRepository = new CategoryRepository();
+            IConfiguration configuration = new ConfigurationBuilder()
+             .SetBasePath(AppContext.BaseDirectory)
+             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+             .Build();
+
+            string connectionString = configuration.GetConnectionString("DefaultConnection")!;
+
+            var options = new DbContextOptionsBuilder<OmsDbContext>()
+                .UseSqlServer(connectionString)
+                .Options;
+
+            using var context = new OmsDbContext(options);
+
+            ICategoryRepository categoryRepository = new CategoryRepository(context);
             ICategoryService categoryService = new CategoryService(categoryRepository);
 
-            var categoryMenu = new CategoryMenu(categoryService);
+            CategoryMenu categoryMenu = new CategoryMenu(categoryService);
 
-            while (true)
+            bool isRunning = true;
+
+            while (isRunning)
             {
                 Console.Clear();
                 Console.WriteLine("=== Order Management System ===");
@@ -23,17 +41,20 @@ namespace OMS.ConsoleApp
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
 
-                var option = Console.ReadLine();
+                string? option = Console.ReadLine();
 
                 switch (option)
                 {
                     case "1":
                         categoryMenu.Show();
                         break;
+
                     case "0":
-                        return;
+                        isRunning = false;
+                        break;
+
                     default:
-                        Console.WriteLine("Invalid option.");
+                        Console.WriteLine("Invalid option. Press any key to continue...");
                         Console.ReadKey();
                         break;
                 }
