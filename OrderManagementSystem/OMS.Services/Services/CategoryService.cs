@@ -29,7 +29,7 @@ namespace OMS.Services.Services
                 throw new ArgumentException("Category name is required.");
 
             if (_categoryRepository.GetByName(category.Name) != null)
-                throw new InvalidOperationException("A category with this name already exists.");
+                throw new InvalidOperationException($"A category with {category.Name} this name already exists.");
 
             _categoryRepository.Add(category);
         }

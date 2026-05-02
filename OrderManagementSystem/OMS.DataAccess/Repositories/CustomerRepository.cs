@@ -20,7 +20,7 @@ namespace OMS.DataAccess.Repositories
         public Customer? GetByEmail(string email)
         {
             return _customers.FirstOrDefault(c =>
-                c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+                c.Email == email);
         }
 
         public void Add(Customer customer)

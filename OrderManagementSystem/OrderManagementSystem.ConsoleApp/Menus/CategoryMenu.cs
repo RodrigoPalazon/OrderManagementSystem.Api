@@ -54,6 +54,11 @@ namespace OMS.ConsoleApp.Menus
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error: {ex.Message}");
+                    if (ex.InnerException != null)
+                    {
+                        Console.WriteLine($"Inner error: {ex.InnerException.Message}");
+                    }
+
                     Pause();
                 }
             }
@@ -86,9 +91,6 @@ namespace OMS.ConsoleApp.Menus
             Console.Clear();
             Console.WriteLine("=== Add Category ===");
 
-            Console.Write("Id: ");
-            int id = int.Parse(Console.ReadLine()!);
-
             Console.Write("Name: ");
             string name = Console.ReadLine()!;
 
@@ -97,7 +99,6 @@ namespace OMS.ConsoleApp.Menus
 
             var category = new Category
             {
-                Id = id,
                 Name = name,
                 Description = description
             };
