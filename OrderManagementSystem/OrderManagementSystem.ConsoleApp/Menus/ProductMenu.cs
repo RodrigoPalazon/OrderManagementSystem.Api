@@ -86,9 +86,6 @@ namespace OMS.ConsoleApp.Menus
             Console.Clear();
             Console.WriteLine("=== Add Product ===");
 
-            Console.Write("Id: ");
-            int id = int.Parse(Console.ReadLine()!);
-
             Console.Write("Name: ");
             string name = Console.ReadLine()!;
 
@@ -106,8 +103,7 @@ namespace OMS.ConsoleApp.Menus
 
             var product = new Product
             {
-                Id = id,
-                Name = name,
+                    Name = name,
                 Description = description,
                 Price = price,
                 StockQuantity = stockQuantity,

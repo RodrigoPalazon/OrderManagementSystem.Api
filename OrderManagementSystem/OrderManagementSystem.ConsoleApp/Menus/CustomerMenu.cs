@@ -86,9 +86,6 @@ namespace OMS.ConsoleApp.Menus
             Console.Clear();
             Console.WriteLine("=== Add Customer ===");
 
-            Console.Write("Id: ");
-            int id = int.Parse(Console.ReadLine()!);
-
             Console.Write("First Name: ");
             string firstName = Console.ReadLine()!;
 
@@ -103,7 +100,6 @@ namespace OMS.ConsoleApp.Menus
 
             var customer = new Customer
             {
-                Id = id,
                 FirstName = firstName,
                 LastName = lastName,
                 Email = email,
@@ -119,6 +115,9 @@ namespace OMS.ConsoleApp.Menus
 
         private void UpdateCustomer()
         {
+            try
+            {
+
             Console.Clear();
             Console.WriteLine("=== Update Customer ===");
 
@@ -148,6 +147,11 @@ namespace OMS.ConsoleApp.Menus
             _customerService.UpdateCustomer(existingCustomer);
 
             Console.WriteLine("Customer updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
             Pause();
         }
 

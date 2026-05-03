@@ -6,6 +6,7 @@ using OMS.DataAccess.Interfaces;
 using OMS.DataAccess.Repositories;
 using OMS.Services.Interfaces;
 using OMS.Services.Services;
+using System.Runtime.InteropServices;
 
 namespace OMS.ConsoleApp
 {
@@ -27,9 +28,16 @@ namespace OMS.ConsoleApp
             using var context = new OmsDbContext(options);
 
             ICategoryRepository categoryRepository = new CategoryRepository(context);
+            ICustomerRepository customerRepository = new CustomerRepository(context);
+            IProductRepository productRepository = new ProductRepository(context);
+
             ICategoryService categoryService = new CategoryService(categoryRepository);
+            ICustomerService customerService = new CustomerService(customerRepository);
+            IProductService productService = new ProductService(productRepository, categoryRepository);
 
             CategoryMenu categoryMenu = new CategoryMenu(categoryService);
+            CustomerMenu customerMenu = new CustomerMenu(customerService);
+            ProductMenu productMenu = new ProductMenu(productService);
 
             bool isRunning = true;
 
@@ -38,6 +46,8 @@ namespace OMS.ConsoleApp
                 Console.Clear();
                 Console.WriteLine("=== Order Management System ===");
                 Console.WriteLine("1. Manage Categories");
+                Console.WriteLine("2. Manage Products");
+                Console.WriteLine("3. Manage Customers");
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
 
@@ -47,6 +57,14 @@ namespace OMS.ConsoleApp
                 {
                     case "1":
                         categoryMenu.Show();
+                        break;
+
+                    case "2":
+                        productMenu.Show();
+                        break;
+
+                    case "3":
+                        customerMenu.Show();
                         break;
 
                     case "0":
