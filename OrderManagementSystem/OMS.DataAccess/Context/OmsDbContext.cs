@@ -10,7 +10,7 @@ namespace OMS.DataAccess.Context
 {
     public class OmsDbContext : DbContext
     {
-        public OmsDbContext(DbContextOptions<OmsDbContext> options) : base(options) // "This constructor is used to configure the DbContext with options, such as the connection string."
+        public OmsDbContext( DbContextOptions<OmsDbContext> options) : base(options) // "This constructor is used to configure the DbContext with options, such as the connection string."
                                                                                     // What would be another example of options that could be passed in here?
         {
         }

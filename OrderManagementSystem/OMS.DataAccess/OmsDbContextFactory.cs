@@ -5,7 +5,7 @@ using OMS.DataAccess.Context;
 
 namespace OMS.DataAccess
 {
-    public class OmsDbContextFactory : IDesignTimeDbContextFactory<OmsDbContext>
+    public class OmsDbContextFactory : IDesignTimeDbContextFactory<OmsDbContext> // Read Factory Design Pattern.
     {
         public OmsDbContext CreateDbContext(string[] args)
         {

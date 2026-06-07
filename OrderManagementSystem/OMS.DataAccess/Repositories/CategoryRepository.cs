@@ -40,7 +40,14 @@ namespace OMS.DataAccess.Repositories
 
         public void Update(Category category)
         {
-            _context.Categories.Update(category);
+            var existingCategory = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
+
+            if (existingCategory == null)
+                return;
+
+            existingCategory.Name = category.Name;
+            existingCategory.Description = category.Description;
+
             _context.SaveChanges();
         }
 
