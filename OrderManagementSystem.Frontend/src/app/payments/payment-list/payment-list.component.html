@@ -1,0 +1,27 @@
+<h2>Payments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Order ID</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Method</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of payments">
+      <td>{{ payment.id }}</td>
+      <td>{{ payment.orderId }}</td>
+      <td>{{ payment.amount | currency }}</td>
+      <td>{{ payment.paymentDate | date }}</td>
+      <td>{{ payment.paymentMethod }}</td>
+      <td>{{ payment.status }}</td>
+      <td>
+        <button (click)="deletePayment(payment.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
