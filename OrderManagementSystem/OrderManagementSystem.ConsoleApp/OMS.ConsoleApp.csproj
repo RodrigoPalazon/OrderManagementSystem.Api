@@ -22,10 +22,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\OMS.Model.csproj" />
+    <ProjectReference Include="..\OMS.Model\OMS.Model.csproj" />
     <ProjectReference Include="..\OMS.DataAccess\OMS.DataAccess.csproj" />
     <ProjectReference Include="..\OMS.Services\OMS.Services.csproj" />
   </ItemGroup>

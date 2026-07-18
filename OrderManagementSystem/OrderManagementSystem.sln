@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Services", "OMS.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.DataAccess", "OMS.DataAccess\OMS.DataAccess.csproj", "{F275EEF1-7D80-470F-9A19-21E10F9BFC2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Model", "ClassLibrary1\OMS.Model.csproj", "{B2F8F2E9-5145-4ECA-BA47-F0B2A28443D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Model", "OMS.Model\OMS.Model.csproj", "{B2F8F2E9-5145-4ECA-BA47-F0B2A28443D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Api", "OMS.Api\OMS.Api.csproj", "{82991F58-C979-4029-AC9A-35ADD1F3ACC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Tests", "OMS.Tests\OMS.Tests.csproj", "{AAED4A43-ECA5-443F-AD1E-68E6A5FAEB04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{B2F8F2E9-5145-4ECA-BA47-F0B2A28443D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F8F2E9-5145-4ECA-BA47-F0B2A28443D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F8F2E9-5145-4ECA-BA47-F0B2A28443D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82991F58-C979-4029-AC9A-35ADD1F3ACC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82991F58-C979-4029-AC9A-35ADD1F3ACC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82991F58-C979-4029-AC9A-35ADD1F3ACC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82991F58-C979-4029-AC9A-35ADD1F3ACC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAED4A43-ECA5-443F-AD1E-68E6A5FAEB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAED4A43-ECA5-443F-AD1E-68E6A5FAEB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAED4A43-ECA5-443F-AD1E-68E6A5FAEB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAED4A43-ECA5-443F-AD1E-68E6A5FAEB04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
