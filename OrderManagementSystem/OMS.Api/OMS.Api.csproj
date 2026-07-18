@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\OMS.Model.csproj" />
+    <ProjectReference Include="..\OMS.Model\OMS.Model.csproj" />
     <ProjectReference Include="..\OMS.DataAccess\OMS.DataAccess.csproj" />
     <ProjectReference Include="..\OMS.Services\OMS.Services.csproj" />
   </ItemGroup>
