@@ -26,12 +26,15 @@ namespace OMS.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<Category> GetById(int id)
         {
-            var category = _categoryService.GetCategoryById(id);
-
-            if (category == null)
-                return NotFound();
-
-            return Ok(category);
+            try
+            {
+                var category = _categoryService.GetCategoryById(id);
+                return Ok(category);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpPost]

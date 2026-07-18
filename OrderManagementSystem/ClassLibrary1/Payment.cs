@@ -14,6 +14,8 @@
 
         public PaymentStatus Status { get; set; }
 
+        public bool isDebit { get; set; }
+
         public string TransactionReference { get; set; } = string.Empty;
 
         public string Notes { get; set; } = string.Empty;

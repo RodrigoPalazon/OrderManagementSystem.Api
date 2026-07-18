@@ -20,7 +20,12 @@ namespace OMS.Services.Services
 
         public Category? GetCategoryById(int id)
         {
-            return _categoryRepository.GetById(id);
+            var existingCategory = _categoryRepository.GetById(id);
+            if (existingCategory == null)
+            {
+                throw new InvalidOperationException("Category not found.");
+            }
+            return existingCategory;
         }
 
         public void CreateCategory(Category category)

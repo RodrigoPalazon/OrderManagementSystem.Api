@@ -18,6 +18,7 @@ namespace OMS.DataAccess.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // "This method is used to configure the entity mappings and relationships. It is called when the model is being created."
         {
@@ -26,7 +27,8 @@ namespace OMS.DataAccess.Context
             modelBuilder.Entity<Category>().HasKey(c => c.Id);
             modelBuilder.Entity<Customer>().HasKey(c => c.Id);
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
-           
+            modelBuilder.Entity<Payment>().HasKey(p => p.Id);
+
             modelBuilder.Entity<Customer>()
                 .HasIndex(c => c.Email)
                 .IsUnique();
@@ -39,6 +41,10 @@ namespace OMS.DataAccess.Context
 
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
+                .HasPrecision(10, 2);
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Amount)
                 .HasPrecision(10, 2);
         }
     }
